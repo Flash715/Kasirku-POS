@@ -21,6 +21,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -141,33 +142,33 @@ public class PenggunaActivity extends AppCompatActivity {
         }
 
 
-        TextInputLayout tilrepassword = new TextInputLayout(com.dfit.dfpos.PenggunaActivity.this);
+        TextInputLayout tilrepassword = new TextInputLayout(com.ivan.kasirku.PenggunaActivity.this);
         tilrepassword.addView(edrepasswords);
         tilrepassword.setHint("Konfirmasi Password");
 
 
-        final CheckBox ckread_persediaan = new CheckBox(com.dfit.dfpos.PenggunaActivity.this);
+        final CheckBox ckread_persediaan = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
         ckread_persediaan.setText("Lihat Persediaan");
 
-        final CheckBox ckwrite_persediaan = new CheckBox(com.dfit.dfpos.PenggunaActivity.this);
+        final CheckBox ckwrite_persediaan = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
         ckwrite_persediaan.setText("Tambah Persediaan");
 
-        final CheckBox ckread_pembelian = new CheckBox(com.dfit.dfpos.PenggunaActivity.this);
+        final CheckBox ckread_pembelian = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
         ckread_pembelian.setText("Lihat Pembelian");
 
-        final CheckBox ckwrite_pembelian = new CheckBox(com.dfit.dfpos.PenggunaActivity.this);
+        final CheckBox ckwrite_pembelian = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
         ckwrite_pembelian.setText("Tambah Pembelian");
 
-        final CheckBox ckread_penjualan = new CheckBox(com.dfit.dfpos.PenggunaActivity.this);
+        final CheckBox ckread_penjualan = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
         ckread_penjualan.setText("Lihat Penjualan");
 
-        final CheckBox ckwrite_penjualan = new CheckBox(com.dfit.dfpos.PenggunaActivity.this);
+        final CheckBox ckwrite_penjualan = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
         ckwrite_penjualan.setText("Tambah Penjualan");
 
-        final CheckBox ckread_laporan = new CheckBox(com.dfit.dfpos.PenggunaActivity.this);
+        final CheckBox ckread_laporan = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
         ckread_laporan.setText("Lihat Laporan");
 
-        final CheckBox ckread_pengguna = new CheckBox(com.dfit.dfpos.PenggunaActivity.this);
+        final CheckBox ckread_pengguna = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
         ckread_pengguna.setText("Lihat Pengguna");
 
 
