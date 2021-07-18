@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fdfdfd"
-    tools:context="com.dfit.dfpos.CariBarangActivity">
+    tools:context=".CariBarangActivity">
 
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="90dp"

@@ -86,7 +86,7 @@
         app:layout_constraintStart_toEndOf="@+id/edjumlahuang"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bpass"
         style="@style/DefaultButton"
         android:layout_width="90dp"
@@ -99,7 +99,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edjumlahuang" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/b5"
         style="@style/DefaultButton"
         android:layout_width="90dp"
@@ -114,7 +114,7 @@
         app:layout_constraintStart_toEndOf="@+id/bpass"
         app:layout_constraintTop_toBottomOf="@+id/edjumlahuang" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/b10"
         style="@style/DefaultButton"
         android:layout_width="90dp"
@@ -126,7 +126,7 @@
         app:layout_constraintStart_toEndOf="@+id/b5"
         app:layout_constraintTop_toBottomOf="@+id/edjumlahuang" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/b20"
         style="@style/DefaultButton"
         android:layout_width="90dp"
@@ -140,7 +140,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bpass" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/b50"
         style="@style/DefaultButton"
         android:layout_width="90dp"
@@ -154,7 +154,7 @@
         app:layout_constraintStart_toEndOf="@+id/b20"
         app:layout_constraintTop_toBottomOf="@+id/b5" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/b100"
         style="@style/DefaultButton"
         android:layout_width="90dp"

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fdfdfd"
-    tools:context="com.dfit.dfpos.PenjualanActivity">
+    tools:context=".PenjualanActivity">
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -5,7 +5,7 @@
     android:id="@+id/cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dfit.dfpos.TambahPenjualanActivity"
+    tools:context=".TambahPenjualanActivity"
     android:background="#ffffff">
 
     <androidx.appcompat.widget.Toolbar
@@ -188,7 +188,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bsimpan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -202,7 +202,7 @@
 
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bbayar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

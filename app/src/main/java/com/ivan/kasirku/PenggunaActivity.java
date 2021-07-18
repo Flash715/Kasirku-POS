@@ -70,7 +70,7 @@ public class PenggunaActivity extends AppCompatActivity {
         lvdata.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-                AlertDialog.Builder adb = new AlertDialog.Builder(com.dfit.dfpos.PenggunaActivity.this);
+                AlertDialog.Builder adb = new AlertDialog.Builder(PenggunaActivity.this);
                 adb.setTitle("Konfirmasi");
                 adb.setMessage("Yakin Ingin Menghapus Data Ini");
                 adb.setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
@@ -81,7 +81,7 @@ public class PenggunaActivity extends AppCompatActivity {
                         try {
                             db.execSQL("DELETE FROM pengguna WHERE kode_user='" + ls.get(position).getId() + "'");
                             db.setTransactionSuccessful();
-                            Toast.makeText(com.dfit.dfpos.PenggunaActivity.this, "Data Perhasil Dihapus", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PenggunaActivity.this, "Data Perhasil Dihapus", Toast.LENGTH_SHORT).show();
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         } finally {
@@ -106,34 +106,34 @@ public class PenggunaActivity extends AppCompatActivity {
     }
 
     private void userop(final String kode_user) {
-        AlertDialog.Builder adb = new AlertDialog.Builder(com.dfit.dfpos.PenggunaActivity.this);
+        AlertDialog.Builder adb = new AlertDialog.Builder(PenggunaActivity.this);
         adb.setTitle("Tambah Pengguna");
         adb.setCancelable(false);
-        final EditText edemail = new EditText(com.dfit.dfpos.PenggunaActivity.this);
+        final EditText edemail = new EditText(PenggunaActivity.this);
         edemail.setInputType(TextView.AUTO_SIZE_TEXT_TYPE_UNIFORM);
-        final EditText edusername = new EditText(com.dfit.dfpos.PenggunaActivity.this);
+        final EditText edusername = new EditText(PenggunaActivity.this);
         edemail.setInputType(TextView.AUTO_SIZE_TEXT_TYPE_UNIFORM);
-        final EditText edoldpasswords = new EditText(com.dfit.dfpos.PenggunaActivity.this);
+        final EditText edoldpasswords = new EditText(PenggunaActivity.this);
         edoldpasswords.setTransformationMethod(PasswordTransformationMethod.getInstance());
-        final EditText edpasswords = new EditText(com.dfit.dfpos.PenggunaActivity.this);
+        final EditText edpasswords = new EditText(PenggunaActivity.this);
         edpasswords.setTransformationMethod(PasswordTransformationMethod.getInstance());
-        final EditText edrepasswords = new EditText(com.dfit.dfpos.PenggunaActivity.this);
+        final EditText edrepasswords = new EditText(PenggunaActivity.this);
         edrepasswords.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
 
-        TextInputLayout tilemail = new TextInputLayout(com.dfit.dfpos.PenggunaActivity.this);
+        TextInputLayout tilemail = new TextInputLayout(PenggunaActivity.this);
         tilemail.addView(edemail);
         tilemail.setHint("Email");
 
-        TextInputLayout tilusername = new TextInputLayout(com.dfit.dfpos.PenggunaActivity.this);
+        TextInputLayout tilusername = new TextInputLayout(PenggunaActivity.this);
         tilusername.addView(edusername);
         tilusername.setHint("Username");
 
-        TextInputLayout tiloldpassword = new TextInputLayout(com.dfit.dfpos.PenggunaActivity.this);
+        TextInputLayout tiloldpassword = new TextInputLayout(PenggunaActivity.this);
         tiloldpassword.addView(edoldpasswords);
         tiloldpassword.setHint("Password Lama");
 
-        TextInputLayout tilpassword = new TextInputLayout(com.dfit.dfpos.PenggunaActivity.this);
+        TextInputLayout tilpassword = new TextInputLayout(PenggunaActivity.this);
         tilpassword.addView(edpasswords);
         if (kode_user.equals("")) {
             tilpassword.setHint("Password");
@@ -142,37 +142,37 @@ public class PenggunaActivity extends AppCompatActivity {
         }
 
 
-        TextInputLayout tilrepassword = new TextInputLayout(com.ivan.kasirku.PenggunaActivity.this);
+        TextInputLayout tilrepassword = new TextInputLayout(PenggunaActivity.this);
         tilrepassword.addView(edrepasswords);
         tilrepassword.setHint("Konfirmasi Password");
 
 
-        final CheckBox ckread_persediaan = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
+        final CheckBox ckread_persediaan = new CheckBox(PenggunaActivity.this);
         ckread_persediaan.setText("Lihat Persediaan");
 
-        final CheckBox ckwrite_persediaan = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
+        final CheckBox ckwrite_persediaan = new CheckBox(PenggunaActivity.this);
         ckwrite_persediaan.setText("Tambah Persediaan");
 
-        final CheckBox ckread_pembelian = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
+        final CheckBox ckread_pembelian = new CheckBox(PenggunaActivity.this);
         ckread_pembelian.setText("Lihat Pembelian");
 
-        final CheckBox ckwrite_pembelian = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
+        final CheckBox ckwrite_pembelian = new CheckBox(PenggunaActivity.this);
         ckwrite_pembelian.setText("Tambah Pembelian");
 
-        final CheckBox ckread_penjualan = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
+        final CheckBox ckread_penjualan = new CheckBox(PenggunaActivity.this);
         ckread_penjualan.setText("Lihat Penjualan");
 
-        final CheckBox ckwrite_penjualan = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
+        final CheckBox ckwrite_penjualan = new CheckBox(PenggunaActivity.this);
         ckwrite_penjualan.setText("Tambah Penjualan");
 
-        final CheckBox ckread_laporan = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
+        final CheckBox ckread_laporan = new CheckBox(PenggunaActivity.this);
         ckread_laporan.setText("Lihat Laporan");
 
-        final CheckBox ckread_pengguna = new CheckBox(com.ivan.kasirku.PenggunaActivity.this);
+        final CheckBox ckread_pengguna = new CheckBox(PenggunaActivity.this);
         ckread_pengguna.setText("Lihat Pengguna");
 
 
-        LinearLayout ll = new LinearLayout(com.dfit.dfpos.PenggunaActivity.this);
+        LinearLayout ll = new LinearLayout(PenggunaActivity.this);
         ll.setPadding(10, 10, 10, 10);
         ll.setOrientation(LinearLayout.VERTICAL);
         ll.addView(tilemail);
@@ -294,7 +294,7 @@ public class PenggunaActivity extends AppCompatActivity {
                         edpasswords.getText().toString().equals("") ||
                         edrepasswords.getText().toString().equals("")) {
 
-                    Toast.makeText(com.dfit.dfpos.PenggunaActivity.this, "Operasi Gagal, Inputan tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PenggunaActivity.this, "Operasi Gagal, Inputan tidak boleh kosong", Toast.LENGTH_SHORT).show();
 
                 } else {
                     if (edpasswords.getText().toString().equals(edrepasswords.getText().toString())) {
@@ -365,7 +365,7 @@ public class PenggunaActivity extends AppCompatActivity {
                                         "" + iwrite_persediaan + "," + iread_pembelian + "," + iwrite_pembelian + "," +
                                         "" + iread_penjualan + "," + iwrite_penjualan + "," + iread_laporan + "," + iread_pengguna + ")";
                                 db.execSQL(query);
-                                Toast.makeText(com.dfit.dfpos.PenggunaActivity.this, "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PenggunaActivity.this, "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
                             } else {
                                 if (passlama.equals(edoldpasswords.getText().toString())) {
                                     String query = "UPDATE pengguna  SET email='" + edemail.getText().toString() + "'," +
@@ -375,9 +375,9 @@ public class PenggunaActivity extends AppCompatActivity {
                                             "read_penjualan=" + iread_penjualan + ",write_penjualan=" + iwrite_penjualan + ",read_laporan=" + iread_laporan + ",read_user=" + iread_pengguna + " " +
                                             "WHERE kode_user='" + kode_user + "'";
                                     db.execSQL(query);
-                                    Toast.makeText(com.dfit.dfpos.PenggunaActivity.this, "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(PenggunaActivity.this, "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(com.dfit.dfpos.PenggunaActivity.this, "Data Gagal Disimpan,Password Lama Tidak Cocok", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(PenggunaActivity.this, "Data Gagal Disimpan,Password Lama Tidak Cocok", Toast.LENGTH_SHORT).show();
                                 }
 
                             }
@@ -391,7 +391,7 @@ public class PenggunaActivity extends AppCompatActivity {
                         }
                         loaddata();
                     } else {
-                        Toast.makeText(com.dfit.dfpos.PenggunaActivity.this, "Data Gagal Disimpan, Konfirmasi Password Tidak Cocok", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PenggunaActivity.this, "Data Gagal Disimpan, Konfirmasi Password Tidak Cocok", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

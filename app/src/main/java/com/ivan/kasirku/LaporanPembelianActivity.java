@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -45,7 +46,7 @@ public class LaporanPembelianActivity extends AppCompatActivity {
     ListView lvdata;
     TextView ltotal, ljudul, ltanggal, ljumlah, lkode_trans, lnama, lharga, lhtotal;
     Button bexport;
-    com.dfit.dfpos.Dblocalhelper dbo;
+    com.ivan.kasirku.Dblocalhelper dbo;
     NumberFormat nf = NumberFormat.getInstance();
     reportadapter adapter;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -69,7 +70,7 @@ public class LaporanPembelianActivity extends AppCompatActivity {
         lnama = findViewById(R.id.lnama);
         lharga = findViewById(R.id.lharga);
         bexport = findViewById(R.id.bexport);
-        dbo = new com.dfit.dfpos.Dblocalhelper(this);
+        dbo = new com.ivan.kasirku.Dblocalhelper(this);
         edtanggal_dari.setFocusable(false);
         edtanggal_hingga.setFocusable(false);
         bexport.setFocusable(true);
@@ -120,7 +121,7 @@ public class LaporanPembelianActivity extends AppCompatActivity {
         bimg_tanggal_dari.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog dpd = new DatePickerDialog(com.dfit.dfpos.LaporanPembelianActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog dpd = new DatePickerDialog(com.ivan.kasirku.LaporanPembelianActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         cal.set(Calendar.YEAR, year);
@@ -138,7 +139,7 @@ public class LaporanPembelianActivity extends AppCompatActivity {
         bimg_tanggal_hingga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog dpd = new DatePickerDialog(com.dfit.dfpos.LaporanPembelianActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog dpd = new DatePickerDialog(com.ivan.kasirku.LaporanPembelianActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         cal.set(Calendar.YEAR, year);
@@ -161,11 +162,11 @@ public class LaporanPembelianActivity extends AppCompatActivity {
             public void onClick(View v) {
                 File kasiroffbackup = new File(Environment.getExternalStorageDirectory(), "kasirkubackup");
                 File laporandirectori = new File(Environment.getExternalStorageDirectory(), "kasirkubackup/laporan");
-                if (ActivityCompat.checkSelfPermission(com.dfit.dfpos.LaporanPembelianActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                if (ActivityCompat.checkSelfPermission(com.ivan.kasirku.LaporanPembelianActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
                         != PackageManager.PERMISSION_GRANTED &&
-                        ActivityCompat.checkSelfPermission(com.dfit.dfpos.LaporanPembelianActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        ActivityCompat.checkSelfPermission(com.ivan.kasirku.LaporanPembelianActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                                 != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(com.dfit.dfpos.LaporanPembelianActivity.this,
+                    ActivityCompat.requestPermissions(com.ivan.kasirku.LaporanPembelianActivity.this,
                             new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE,
                                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
                                     android.Manifest.permission.CAMERA}, 1);
@@ -227,7 +228,7 @@ public class LaporanPembelianActivity extends AppCompatActivity {
                     bw.flush();
                     bw.close();
                     final Uri muri = Uri.fromFile(laporanfile);
-                    AlertDialog.Builder adb = new AlertDialog.Builder(com.dfit.dfpos.LaporanPembelianActivity.this);
+                    AlertDialog.Builder adb = new AlertDialog.Builder(LaporanPembelianActivity.this);
                     adb.setTitle("Informasi");
                     adb.setMessage("Data Berhasil Diexport, Data yang diexport berupa file csv yang tersimpan " +
                             "otomatis di folder laporan yang berada di dalam folder kasirkubackup (kasirkubackup/laporan)");
@@ -240,7 +241,7 @@ public class LaporanPembelianActivity extends AppCompatActivity {
                                 in.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                                 startActivity(in);
                             } catch (Exception ex) {
-                                Toast.makeText(com.dfit.dfpos.LaporanPembelianActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LaporanPembelianActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
 
@@ -255,7 +256,7 @@ public class LaporanPembelianActivity extends AppCompatActivity {
                     adb.show();
 
                 } catch (IOException e) {
-                    Toast.makeText(com.dfit.dfpos.LaporanPembelianActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LaporanPembelianActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
 
                 }

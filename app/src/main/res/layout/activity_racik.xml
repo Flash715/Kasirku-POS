@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ednama_barang" />
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bsimpan"
         android:layout_width="169dp"
         android:layout_height="wrap_content"

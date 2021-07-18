@@ -60,7 +60,7 @@ public class InfoUsahaActivity extends AppCompatActivity {
                     db.execSQL("UPDATE perusahaan SET nama_usaha='"+nama_usaha+"', alamat_usaha='"+alamat+"'," +
                             "nohp_usaha='"+nohp+"',email_usaha='"+email+"',website='"+website+"' WHERE id=1");
                     db.setTransactionSuccessful();
-                    Toast.makeText(com.dfit.dfpos.InfoUsahaActivity.this, "Informasi Berhasil Diperbaharui", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(com.ivan.kasirku.InfoUsahaActivity.this, "Informasi Berhasil Diperbaharui", Toast.LENGTH_SHORT).show();
                 }catch (Exception ex){
                     ex.printStackTrace();
                 }finally {

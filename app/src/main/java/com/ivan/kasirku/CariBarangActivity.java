@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -71,7 +72,7 @@ public class CariBarangActivity extends AppCompatActivity {
             @Override
             public void onLoadMore() {
                 if (svdata.getQuery() == null || (svdata.getQuery().toString().equals(""))) {
-                    Toast.makeText(com.dfit.dfpos.CariBarangActivity.this, "memuat data", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(com.ivan.kasirku.CariBarangActivity.this, "memuat data", Toast.LENGTH_SHORT).show();
                     loaddata();
                     currentoffset = currentoffset + 100;
                 }

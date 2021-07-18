@@ -75,7 +75,7 @@
         app:srcCompat="@drawable/ic_repeat_black_24dp"
         tools:ignore="VectorDrawableCompat" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvdata"
         android:layout_width="0dp"
         android:layout_height="0dp"

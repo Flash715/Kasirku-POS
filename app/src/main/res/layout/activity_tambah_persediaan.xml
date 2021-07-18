@@ -57,7 +57,7 @@
                 android:background="@drawable/roundededtext"
                 android:ems="10"
                 android:hint="Kode Barang"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 app:layout_constraintEnd_toStartOf="@+id/bimg_barcode"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -300,7 +300,7 @@
                 app:srcCompat="@drawable/ic_local_atm_black_24dp"
                 tools:ignore="VectorDrawableCompat" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bsimpan"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="0dp"

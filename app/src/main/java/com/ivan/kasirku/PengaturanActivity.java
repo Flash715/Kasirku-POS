@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -62,7 +63,7 @@ public class PengaturanActivity extends AppCompatActivity {
 
         ls.add(new Listviewglobaladapter.listglobalmodel("6", "Tipe Tampilan Menu Barang", (sp.getInt("view_tipe",0)==0)?"Tampilan Menu List":"Tampilan Menu Grid" ));
 
-        ls.add(new Listviewglobaladapter.listglobalmodel("7", "Tentang Aplikasi", "Aplikasi POS DFPOS V1.0"));
+        ls.add(new Listviewglobaladapter.listglobalmodel("7", "Tentang Aplikasi", "Kasirku by kelompok yusuf"));
         final ArrayAdapter<String> adapter = new Listviewglobaladapter(this, ls);
         lvdata.setAdapter(adapter);
 
@@ -70,36 +71,36 @@ public class PengaturanActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
                 if (position == 0) {
-                    AlertDialog.Builder adb = new AlertDialog.Builder(com.dfit.dfpos.PengaturanActivity.this);
+                    AlertDialog.Builder adb = new AlertDialog.Builder(PengaturanActivity.this);
                     adb.setTitle("Informasi Perusahaan");
                     adb.setCancelable(false);
-                    final EditText ednama_usaha = new EditText(com.dfit.dfpos.PengaturanActivity.this);
-                    final EditText edalamat_usaha = new EditText(com.dfit.dfpos.PengaturanActivity.this);
-                    final EditText ednohp_usaha = new EditText(com.dfit.dfpos.PengaturanActivity.this);
-                    final EditText edemail_usaha = new EditText(com.dfit.dfpos.PengaturanActivity.this);
-                    final EditText edwebsite = new EditText(com.dfit.dfpos.PengaturanActivity.this);
+                    final EditText ednama_usaha = new EditText(PengaturanActivity.this);
+                    final EditText edalamat_usaha = new EditText(PengaturanActivity.this);
+                    final EditText ednohp_usaha = new EditText(PengaturanActivity.this);
+                    final EditText edemail_usaha = new EditText(PengaturanActivity.this);
+                    final EditText edwebsite = new EditText(PengaturanActivity.this);
 
-                    TextInputLayout tilnama_usaha = new TextInputLayout(com.dfit.dfpos.PengaturanActivity.this);
+                    TextInputLayout tilnama_usaha = new TextInputLayout(PengaturanActivity.this);
                     tilnama_usaha.addView(ednama_usaha);
                     tilnama_usaha.setHint("Nama Usaha");
 
-                    TextInputLayout tilalamat_usaha = new TextInputLayout(com.dfit.dfpos.PengaturanActivity.this);
+                    TextInputLayout tilalamat_usaha = new TextInputLayout(PengaturanActivity.this);
                     tilalamat_usaha.addView(edalamat_usaha);
                     tilalamat_usaha.setHint("Alamat");
 
-                    TextInputLayout tilnohp_usaha = new TextInputLayout(com.dfit.dfpos.PengaturanActivity.this);
+                    TextInputLayout tilnohp_usaha = new TextInputLayout(PengaturanActivity.this);
                     tilnohp_usaha.addView(ednohp_usaha);
                     tilnohp_usaha.setHint("No Handphone");
 
-                    TextInputLayout tilemail = new TextInputLayout(com.dfit.dfpos.PengaturanActivity.this);
+                    TextInputLayout tilemail = new TextInputLayout(PengaturanActivity.this);
                     tilemail.addView(edemail_usaha);
                     tilemail.setHint("Email");
 
-                    TextInputLayout tilweb = new TextInputLayout(com.dfit.dfpos.PengaturanActivity.this);
+                    TextInputLayout tilweb = new TextInputLayout(PengaturanActivity.this);
                     tilweb.addView(edwebsite);
                     tilweb.setHint("Website");
 
-                    LinearLayout ll = new LinearLayout(com.dfit.dfpos.PengaturanActivity.this);
+                    LinearLayout ll = new LinearLayout(PengaturanActivity.this);
                     ll.setPadding(10, 10, 10, 10);
                     ll.setOrientation(LinearLayout.VERTICAL);
                     ll.addView(tilnama_usaha);
@@ -137,7 +138,7 @@ public class PengaturanActivity extends AppCompatActivity {
                                 db.execSQL("UPDATE perusahaan SET nama_usaha='" + nama_usaha + "', alamat_usaha='" + alamat + "'," +
                                         "nohp_usaha='" + nohp + "',email_usaha='" + email + "',website='" + website + "' WHERE id=1");
                                 db.setTransactionSuccessful();
-                                Toast.makeText(com.dfit.dfpos.PengaturanActivity.this, "Informasi Berhasil Diperbaharui", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PengaturanActivity.this, "Informasi Berhasil Diperbaharui", Toast.LENGTH_SHORT).show();
                             } catch (Exception ex) {
                                 ex.printStackTrace();
                             } finally {
@@ -158,11 +159,11 @@ public class PengaturanActivity extends AppCompatActivity {
 
                 } else if (position == 1) {
                     if (sp.getInt("read_user", 0) == 1) {
-                        Intent in = new Intent(com.dfit.dfpos.PengaturanActivity.this, com.dfit.dfpos.PenggunaActivity.class);
+                        Intent in = new Intent(PengaturanActivity.this, PenggunaActivity.class);
                         startActivity(in);
 
                     } else {
-                        Toast.makeText(com.dfit.dfpos.PengaturanActivity.this, "Proses Ditolak, Anda tidak memiliki akses", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PengaturanActivity.this, "Proses Ditolak, Anda tidak memiliki akses", Toast.LENGTH_SHORT).show();
                     }
 
                 } else if (position == 2) {
@@ -190,7 +191,7 @@ public class PengaturanActivity extends AppCompatActivity {
                                 try {
                                     db.execSQL("UPDATE pengaturan SET default_printer='" + isi[which] + "' WHERE id=1");
                                     db.setTransactionSuccessful();
-                                    Toast.makeText(com.dfit.dfpos.PengaturanActivity.this, isi[which], Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(PengaturanActivity.this, isi[which], Toast.LENGTH_SHORT).show();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 } finally {
@@ -219,15 +220,15 @@ public class PengaturanActivity extends AppCompatActivity {
                     BluetoothAdapter btadapter = BluetoothAdapter.getDefaultAdapter();
                     if (btadapter.isEnabled()) {
                         if (sp.getString("default_printer", "none").equals("none")) {
-                            Toast.makeText(com.dfit.dfpos.PengaturanActivity.this, "Tidak ada Printer", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PengaturanActivity.this, "Tidak ada Printer", Toast.LENGTH_SHORT).show();
                         } else {
                             if (printcount > 1) {
-                                Toast.makeText(com.dfit.dfpos.PengaturanActivity.this, "Printer Siap Dipakai", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PengaturanActivity.this, "Printer Siap Dipakai", Toast.LENGTH_SHORT).show();
                             } else {
                                 printcount = 2;
                                 String textprint = "Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \n\n\n";
                                 byte[] bt = textprint.getBytes();
-                                Toast.makeText(com.dfit.dfpos.PengaturanActivity.this, String.valueOf(bt.length), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PengaturanActivity.this, String.valueOf(bt.length), Toast.LENGTH_SHORT).show();
                                 Bluetoothprint bprint = new Bluetoothprint(com.ivan.kasirku.PengaturanActivity.this);
                                 bprint.print(textprint);
                             }
@@ -239,7 +240,7 @@ public class PengaturanActivity extends AppCompatActivity {
 
 
                 } else if (position == 4) {
-                    AlertDialog.Builder adb = new AlertDialog.Builder(com.dfit.dfpos.PengaturanActivity.this);
+                    AlertDialog.Builder adb = new AlertDialog.Builder(PengaturanActivity.this);
                     adb.setCancelable(false);
                     adb.setTitle("Informasi");
                     adb.setMessage("Data yang dibackup akan dipindah otomatis ke dalam folder kasirkubackup di internal storage anda, " +
@@ -250,11 +251,11 @@ public class PengaturanActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             File kasiroffbackup = new File(Environment.getExternalStorageDirectory(), "kasirkubackup");
-                            if (ActivityCompat.checkSelfPermission(com.dfit.dfpos.PengaturanActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                            if (ActivityCompat.checkSelfPermission(PengaturanActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
                                     != PackageManager.PERMISSION_GRANTED &&
-                                    ActivityCompat.checkSelfPermission(com.dfit.dfpos.PengaturanActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                                    ActivityCompat.checkSelfPermission(PengaturanActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                                             != PackageManager.PERMISSION_GRANTED) {
-                                ActivityCompat.requestPermissions(com.dfit.dfpos.PengaturanActivity.this,
+                                ActivityCompat.requestPermissions(PengaturanActivity.this,
                                         new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE,
                                                 android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
                                                 android.Manifest.permission.CAMERA}, 1);
@@ -275,7 +276,7 @@ public class PengaturanActivity extends AppCompatActivity {
                             try {
                                 Oneforallfunc.copyfile(lokasidb, lokasibackupdb);
                                 Oneforallfunc.copyfile(lokasiimage, lokasibackupimage);
-                                Toast.makeText(com.dfit.dfpos.PengaturanActivity.this, "Backup Berhasil", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PengaturanActivity.this, "Backup Berhasil", Toast.LENGTH_SHORT).show();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -292,7 +293,7 @@ public class PengaturanActivity extends AppCompatActivity {
 
 
                 } else if (position == 5) {
-                    AlertDialog.Builder adb = new AlertDialog.Builder(com.dfit.dfpos.PengaturanActivity.this);
+                    AlertDialog.Builder adb = new AlertDialog.Builder(PengaturanActivity.this);
                     adb.setCancelable(false);
                     adb.setTitle("Informasi");
                     adb.setMessage("Pastikan folder kasirkubackup tidak terhapus di internal storage anda, jika tidak ada atau terhapus, " +
@@ -302,11 +303,11 @@ public class PengaturanActivity extends AppCompatActivity {
                     adb.setPositiveButton("Restore", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            if (ActivityCompat.checkSelfPermission(com.dfit.dfpos.PengaturanActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                            if (ActivityCompat.checkSelfPermission(PengaturanActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
                                     != PackageManager.PERMISSION_GRANTED &&
-                                    ActivityCompat.checkSelfPermission(com.dfit.dfpos.PengaturanActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                                    ActivityCompat.checkSelfPermission(PengaturanActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                                             != PackageManager.PERMISSION_GRANTED) {
-                                ActivityCompat.requestPermissions(com.dfit.dfpos.PengaturanActivity.this,
+                                ActivityCompat.requestPermissions(PengaturanActivity.this,
                                         new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE,
                                                 android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
                                                 android.Manifest.permission.CAMERA}, 1);
@@ -320,9 +321,9 @@ public class PengaturanActivity extends AppCompatActivity {
                             try {
                                 Oneforallfunc.copyfile(lokasibackupdb, lokasidb);
                                 Oneforallfunc.copyfile(lokasibackupimage, lokasiimage);
-                                Toast.makeText(com.dfit.dfpos.PengaturanActivity.this, "Data Berhasil Di Restore", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PengaturanActivity.this, "Data Berhasil Di Restore", Toast.LENGTH_SHORT).show();
                             } catch (Exception e) {
-                                Toast.makeText(com.dfit.dfpos.PengaturanActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PengaturanActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                 e.printStackTrace();
                             }
                         }
@@ -338,7 +339,7 @@ public class PengaturanActivity extends AppCompatActivity {
 
                 } else if (position == 6) {
                     String pilihan[] = {"List", "Grid"};
-                    AlertDialog.Builder adb = new AlertDialog.Builder(com.dfit.dfpos.PengaturanActivity.this);
+                    AlertDialog.Builder adb = new AlertDialog.Builder(PengaturanActivity.this);
                     adb.setTitle("Pilih Tipe Tampilan");
                     adb.setSingleChoiceItems(pilihan, sp.getInt("view_tipe",0), new DialogInterface.OnClickListener() {
                         @Override
@@ -349,7 +350,7 @@ public class PengaturanActivity extends AppCompatActivity {
                                 try {
                                     db.execSQL("UPDATE pengaturan SET view_tipe=0 WHERE id=1");
                                     db.setTransactionSuccessful();
-                                    Toast.makeText(com.dfit.dfpos.PengaturanActivity.this, "Tampilan List", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(PengaturanActivity.this, "Tampilan List", Toast.LENGTH_SHORT).show();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 } finally {
@@ -364,7 +365,7 @@ public class PengaturanActivity extends AppCompatActivity {
                                 try {
                                     db.execSQL("UPDATE pengaturan SET view_tipe=0 WHERE id=1");
                                     db.setTransactionSuccessful();
-                                    Toast.makeText(com.dfit.dfpos.PengaturanActivity.this, "Tampilan Grid", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(PengaturanActivity.this, "Tampilan Grid", Toast.LENGTH_SHORT).show();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 } finally {

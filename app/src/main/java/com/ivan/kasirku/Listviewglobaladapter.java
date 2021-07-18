@@ -1,19 +1,19 @@
 package com.ivan.kasirku;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.util.List;
 
-/**
- * Created by Minami on 27/09/2019.
- */
+
 
 public class Listviewglobaladapter extends ArrayAdapter<String> {
 

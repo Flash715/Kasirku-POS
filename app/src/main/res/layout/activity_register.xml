@@ -56,7 +56,7 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/roundededtext"
                 android:ems="10"
-                android:hint="Nama Perusahaan"
+                android:hint="Nama Toko"
                 android:inputType="text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -249,7 +249,7 @@
 
 
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bsimpan"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="0dp"

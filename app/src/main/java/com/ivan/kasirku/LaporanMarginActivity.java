@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -137,7 +138,7 @@ public class LaporanMarginActivity extends AppCompatActivity {
         bimg_tanggal_dari.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog dpd = new DatePickerDialog(com.dfit.dfpos.LaporanMarginActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog dpd = new DatePickerDialog(LaporanMarginActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         cal.set(Calendar.YEAR, year);
@@ -155,7 +156,7 @@ public class LaporanMarginActivity extends AppCompatActivity {
         bimg_tanggal_hingga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog dpd = new DatePickerDialog(com.dfit.dfpos.LaporanMarginActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog dpd = new DatePickerDialog(LaporanMarginActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         cal.set(Calendar.YEAR, year);
@@ -178,11 +179,11 @@ public class LaporanMarginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 File kasiroffbackup = new File(Environment.getExternalStorageDirectory(), "kasirkubackup");
                 File laporandirectori = new File(Environment.getExternalStorageDirectory(), "kasirkubackup/laporan");
-                if (ActivityCompat.checkSelfPermission(com.dfit.dfpos.LaporanMarginActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                if (ActivityCompat.checkSelfPermission(LaporanMarginActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
                         != PackageManager.PERMISSION_GRANTED &&
-                        ActivityCompat.checkSelfPermission(com.dfit.dfpos.LaporanMarginActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        ActivityCompat.checkSelfPermission(LaporanMarginActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                                 != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(com.dfit.dfpos.LaporanMarginActivity.this,
+                    ActivityCompat.requestPermissions(LaporanMarginActivity.this,
                             new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE,
                                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
                                     android.Manifest.permission.CAMERA}, 1);
@@ -258,7 +259,7 @@ public class LaporanMarginActivity extends AppCompatActivity {
                     bw.flush();
                     bw.close();
                     final Uri muri = Uri.fromFile(laporanfile);
-                    AlertDialog.Builder adb = new AlertDialog.Builder(com.dfit.dfpos.LaporanMarginActivity.this);
+                    AlertDialog.Builder adb = new AlertDialog.Builder(LaporanMarginActivity.this);
                     adb.setTitle("Informasi");
                     adb.setMessage("Data Berhasil Diexport, Data yang diexport berupa file csv yang tersimpan " +
                             "otomatis di folder laporan yang berada di dalam folder kasirkubackup (kasirkubackup/laporan)");
@@ -271,7 +272,7 @@ public class LaporanMarginActivity extends AppCompatActivity {
                                 in.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                                 startActivity(in);
                             } catch (Exception ex) {
-                                Toast.makeText(com.dfit.dfpos.LaporanMarginActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LaporanMarginActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
 
@@ -286,7 +287,7 @@ public class LaporanMarginActivity extends AppCompatActivity {
                     adb.show();
 
                 } catch (IOException e) {
-                    Toast.makeText(com.dfit.dfpos.LaporanMarginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LaporanMarginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
 
                 }

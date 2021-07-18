@@ -12,8 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +24,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -103,7 +105,7 @@ public class LaporanStokActivity extends AppCompatActivity {
         bimg_tanggal_dari.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog dpd = new DatePickerDialog(com.dfit.dfpos.LaporanStokActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog dpd = new DatePickerDialog(com.ivan.kasirku.LaporanStokActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         cal.set(Calendar.YEAR, year);
@@ -121,7 +123,7 @@ public class LaporanStokActivity extends AppCompatActivity {
         bimg_tanggal_hingga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog dpd = new DatePickerDialog(com.dfit.dfpos.LaporanStokActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog dpd = new DatePickerDialog(com.ivan.kasirku.LaporanStokActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         cal.set(Calendar.YEAR, year);
@@ -144,11 +146,11 @@ public class LaporanStokActivity extends AppCompatActivity {
             public void onClick(View v) {
                 File kasiroffbackup = new File(Environment.getExternalStorageDirectory(), "kasirkubackup");
                 File laporandirectori = new File(Environment.getExternalStorageDirectory(), "kasirkubackup/laporan");
-                if (ActivityCompat.checkSelfPermission(com.dfit.dfpos.LaporanStokActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                if (ActivityCompat.checkSelfPermission(com.ivan.kasirku.LaporanStokActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
                         != PackageManager.PERMISSION_GRANTED &&
-                        ActivityCompat.checkSelfPermission(com.dfit.dfpos.LaporanStokActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        ActivityCompat.checkSelfPermission(com.ivan.kasirku.LaporanStokActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                                 != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(com.dfit.dfpos.LaporanStokActivity.this,
+                    ActivityCompat.requestPermissions(com.ivan.kasirku.LaporanStokActivity.this,
                             new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE,
                                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
                                     android.Manifest.permission.CAMERA}, 1);
@@ -206,7 +208,7 @@ public class LaporanStokActivity extends AppCompatActivity {
                     bw.flush();
                     bw.close();
                     final Uri muri = Uri.fromFile(laporanfile);
-                    AlertDialog.Builder adb = new AlertDialog.Builder(com.dfit.dfpos.LaporanStokActivity.this);
+                    AlertDialog.Builder adb = new AlertDialog.Builder(LaporanStokActivity.this);
                     adb.setTitle("Informasi");
                     adb.setMessage("Data Berhasil Diexport, Data yang diexport berupa file csv yang tersimpan " +
                             "otomatis di folder laporan yang berada di dalam folder kasirkubackup (kasirkubackup/laporan)");
@@ -219,7 +221,7 @@ public class LaporanStokActivity extends AppCompatActivity {
                                 in.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                                 startActivity(in);
                             } catch (Exception ex) {
-                                Toast.makeText(com.dfit.dfpos.LaporanStokActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LaporanStokActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
 
@@ -234,7 +236,7 @@ public class LaporanStokActivity extends AppCompatActivity {
                     adb.show();
 
                 } catch (IOException e) {
-                    Toast.makeText(com.dfit.dfpos.LaporanStokActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LaporanStokActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
 
                 }

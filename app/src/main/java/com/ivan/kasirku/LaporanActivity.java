@@ -39,19 +39,19 @@ public class LaporanActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-                    Intent in = new Intent(com.dfit.dfpos.LaporanActivity.this, LaporanPenjualanActivity.class);
+                    Intent in = new Intent(LaporanActivity.this, LaporanPenjualanActivity.class);
                     startActivity(in);
                 } else if (position == 1) {
-                    Intent in = new Intent(com.dfit.dfpos.LaporanActivity.this, LaporanPembelianActivity.class);
+                    Intent in = new Intent(LaporanActivity.this, LaporanPembelianActivity.class);
                     startActivity(in);
                 } else if (position == 2) {
-                    Intent in = new Intent(com.dfit.dfpos.LaporanActivity.this, LaporanStokActivity.class);
+                    Intent in = new Intent(LaporanActivity.this, LaporanStokActivity.class);
                     startActivity(in);
                 } else if (position == 3) {
-                    Intent in = new Intent(com.dfit.dfpos.LaporanActivity.this, LaporanRankingActivity.class);
+                    Intent in = new Intent(LaporanActivity.this, LaporanRankingActivity.class);
                     startActivity(in);
                 } else if (position == 4) {
-                    Intent in = new Intent(com.dfit.dfpos.LaporanActivity.this, com.dfit.dfpos.LaporanMarginActivity.class);
+                    Intent in = new Intent(LaporanActivity.this, LaporanMarginActivity.class);
                     in.putExtra("tipe", "margin");
                     startActivity(in);
                 }

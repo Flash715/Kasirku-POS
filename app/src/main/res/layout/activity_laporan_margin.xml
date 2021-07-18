@@ -7,7 +7,7 @@
     android:background="#ffffff"
     tools:context=".LaporanPenjualanActivity">
 
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="90dp"
@@ -245,7 +245,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ltotal" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bexport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
