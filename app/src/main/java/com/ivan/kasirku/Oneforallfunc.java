@@ -12,9 +12,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DecimalFormat;
 
-/**
- * Created by Minami on 20/09/2019.
- */
+
 
 public class Oneforallfunc {
 
